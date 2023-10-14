@@ -1,6 +1,6 @@
 export const generalConfig: GeneralConfigType = {
 
-	name: 'tscord', // the name of your bot
+	name: 'ColonThree', // the name of your bot
 	description: '', // the description of your bot
 	defaultLocale: 'en', // default language of the bot, must be a valid locale
 	ownerId: process.env['BOT_OWNER_ID'] || '',
@@ -18,7 +18,7 @@ export const generalConfig: GeneralConfigType = {
 	
 	automaticUploadImagesToImgur: false, // enable or not the automatic assets upload
 
-	devs: [], // discord IDs of the devs that are working on the bot (you don't have to put the owner's id here)
+	devs: ["293740213224734720"], // discord IDs of the devs that are working on the bot (you don't have to put the owner's id here)
 
 	eval: {
 		name: 'bot', // name to trigger the eval command

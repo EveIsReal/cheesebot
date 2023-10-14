@@ -1,3 +1,11 @@
+type BotConfigType = {
+    prod_guild_id: string,
+    prod_guild_bot_channel: string,
+    
+    test_guild_id: string,
+    test_guild_bot_channel: string
+}
+
 type GeneralConfigType = {
 
     name: string

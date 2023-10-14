@@ -10,6 +10,8 @@ const en = {
 	},
 	ERRORS: {
 		UNKNOWN: 'An unknown error occurred.',
+		USER_CANNOT_BE_FLAGGED: "This user can't be flagged.",
+		DB_USER_NOT_FOUND: 'This user is not present in the database.',
 	},
 	SHARED: {
 		NO_COMMAND_DESCRIPTION: 'No description provided.',

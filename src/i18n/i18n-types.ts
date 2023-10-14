@@ -39,6 +39,14 @@ type RootTranslation = {
 		 * A​n​ ​u​n​k​n​o​w​n​ ​e​r​r​o​r​ ​o​c​c​u​r​r​e​d​.
 		 */
 		UNKNOWN: string
+		/**
+		 * T​h​i​s​ ​u​s​e​r​ ​c​a​n​'​t​ ​b​e​ ​f​l​a​g​g​e​d​.
+		 */
+		USER_CANNOT_BE_FLAGGED: string
+		/**
+		 * T​h​i​s​ ​u​s​e​r​ ​i​s​ ​n​o​t​ ​p​r​e​s​e​n​t​ ​i​n​ ​t​h​e​ ​d​a​t​a​b​a​s​e​.
+		 */
+		DB_USER_NOT_FOUND: string
 	}
 	SHARED: {
 		/**
@@ -198,6 +206,14 @@ export type TranslationFunctions = {
 		 * An unknown error occurred.
 		 */
 		UNKNOWN: () => LocalizedString
+		/**
+		 * This user can't be flagged.
+		 */
+		USER_CANNOT_BE_FLAGGED: () => LocalizedString
+		/**
+		 * This user is not present in the database.
+		 */
+		DB_USER_NOT_FOUND: () => LocalizedString
 	}
 	SHARED: {
 		/**

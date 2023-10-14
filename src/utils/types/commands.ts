@@ -1,0 +1,1 @@
+export type CommandLogAction = "FLAGGED_USER" | "UNFLAGGED_USER" | "BANNED_USER";

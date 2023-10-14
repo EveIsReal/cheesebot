@@ -1,15 +1,18 @@
-import { ApplicationCommandOptionType, CommandInteraction } from "discord.js"
+import { ActivityType, ApplicationCommandOptionType, CommandInteraction } from "discord.js"
 import { Client } from "discordx"
 
 import { Discord, Guard, Slash, SlashOption } from "@decorators"
 import { Disabled } from "@guards"
-import { setMaintenance, simpleSuccessEmbed } from "@utils/functions"
+import { isDev, setMaintenance, simpleErrorEmbed, simpleSuccessEmbed } from "@utils/functions"
+import { botConfig } from "@configs"
 
 @Discord()
 export default class MaintenanceCommand {
 
 	@Slash({ 
-		name: 'maintenance'
+		name: 'maintenance',
+		defaultMemberPermissions: ["BanMembers"],
+		guilds: [botConfig.test_guild_id, botConfig.prod_guild_id]
 	})
 	@Guard(
 		Disabled
@@ -20,8 +23,21 @@ export default class MaintenanceCommand {
 		client: Client,
 		{ localize }: InteractionData
 	) {
-				
-		await setMaintenance(state)
+
+		if(!isDev(interaction.user.id)) {
+			simpleErrorEmbed(interaction, "Maintenance can only be activated by a developer.")
+			return;
+		}
+
+		await setMaintenance(state);
+
+		if(state) {
+			client.user?.setActivity("MAINTENANCE");
+			client.user?.setStatus("dnd");
+		} else {
+			client.user?.setActivity("cute people chat :3", { type: ActivityType.Watching });
+			client.user?.setStatus("online");
+		}
 
 		simpleSuccessEmbed(
 			interaction, 
