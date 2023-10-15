@@ -11,8 +11,9 @@ import { apiConfig, generalConfig, websocketConfig } from "@configs"
 import { NoBotTokenError } from "@errors"
 import { Database, ErrorHandler, EventManager, ImagesUpload, Logger, PluginsManager, Store, WebSocket } from "@services"
 import { initDataTable, resolveDependency } from "@utils/functions"
-import { clientConfig } from "./client"
 import { RequestContext } from '@mikro-orm/core'
+import { clientConfig } from './client'
+import { ClientOptions } from 'discord.js'
 
 async function run() {
 
@@ -39,6 +40,7 @@ async function run() {
     
     // init the client
     DIService.engine = tsyringeDependencyRegistryEngine.setInjector(container)
+    //@ts-ignore
     const client = new Client(clientConfig)
     
     // Load all new events

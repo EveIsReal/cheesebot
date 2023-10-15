@@ -1,6 +1,7 @@
 import { botConfig } from "@configs";
 import { Category } from "@discordx/utilities";
 import { AttachmentBuilder, CommandInteraction } from "discord.js";
+import fetch from "node-fetch";
 import { Discord, Slash } from "discordx";
 
 @Discord()
@@ -20,6 +21,7 @@ export default class CatCommand {
         const response = await fetch(url);
         const data = await response.json();
 
+        //@ts-ignore
         await interaction.followUp(data[0].url);
 
     }
